@@ -11,7 +11,6 @@ public class AppInit {
 
     @Bean
     public CommandLineRunner initialize(@Autowired NmcaService service) {
-    //    return args -> service.initializeDatabase();
       return args -> System.out.println("System started!");
     }
 }

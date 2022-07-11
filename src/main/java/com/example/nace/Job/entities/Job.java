@@ -3,13 +3,16 @@ package com.example.nace.Job.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="NACE")
 public class Job {
     public Job(){ }
 
     @Id
-    private Long id;
+    @Column(name="ORDERNO")
+    private Long orderno;
 
     private String level;
     private String code;
@@ -27,19 +30,19 @@ public class Job {
     private String thisItemExcludes;
     private String referenceToISIC4;
 
-    public Job(Long id, String level, String code, String description){
-        this.id = id;
+    public Job(Long orderno, String level, String code, String description){
+        this.orderno = orderno;
         this.level = level;
         this.code = code;
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
+    public Long getOrderno() {
+        return orderno;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrderno(Long orderno) {
+        this.orderno = orderno;
     }
 
     public String getRulings() {
@@ -122,7 +125,7 @@ public class Job {
 
         Job job = (Job) o;
 
-        if (!id.equals(job.id)) return false;
+        if (!orderno.equals(job.orderno)) return false;
         if (getLevel() != null ? !getLevel().equals(job.getLevel()) : job.getLevel() != null) return false;
         if (getCode() != null ? !getCode().equals(job.getCode()) : job.getCode() != null) return false;
         return getParent() != null ? getParent().equals(job.getParent()) : job.getParent() == null;
@@ -130,7 +133,7 @@ public class Job {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
+        int result = orderno.hashCode();
         result = 31 * result + (getLevel() != null ? getLevel().hashCode() : 0);
         result = 31 * result + (getCode() != null ? getCode().hashCode() : 0);
         result = 31 * result + (getParent() != null ? getParent().hashCode() : 0);
@@ -140,7 +143,7 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "Id =" + id +
+                "Id =" + orderno +
                 ", level='" + level + '\'' +
                 ", code='" + code + '\'' +
                 ", parent='" + parent + '\'' +

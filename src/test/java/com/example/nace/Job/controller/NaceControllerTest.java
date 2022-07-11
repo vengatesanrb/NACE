@@ -36,8 +36,8 @@ public class NaceControllerTest {
 
     @BeforeEach
     void mockService(){
-        agri = new Job(398481l, "A","2","AGRICULTURE, FORESTRY AND FISHING" );
-        when(service.getNaceDetails(398481l)).thenReturn(agri);
+        agri = new Job(398481L, "A","2","AGRICULTURE, FORESTRY AND FISHING" );
+        when(service.getNaceDetails(398481L)).thenReturn(agri);
         when(service.addNaceDetails(isA(Job.class))).thenThrow(new NaceAlreadyExistException());
     }
 
@@ -61,7 +61,7 @@ public class NaceControllerTest {
 
     @Test
     public void postNewNace() throws Exception{
-        agri = new Job(398500l, "A","2","ANIMAL CARE" );
+        agri = new Job(398481L, "A","2","ANIMAL CARE" );
         when(service.addNaceDetails(isA(Job.class))).thenReturn(agri);
         MvcResult mvcResult =this.mvc.perform(MockMvcRequestBuilders.post(POST_URI)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
