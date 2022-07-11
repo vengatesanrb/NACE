@@ -1,0 +1,1 @@
+CREATE TABLE TEST AS SELECT * FROM CSVREAD('src/main/resources/static/NACE_REV2_CSV.csv');

@@ -17,7 +17,6 @@ public class NmcaService {
     public void initializeDatabase() {
         if(jobRepository.count() == 0){
             Job job = new Job(1L,"2","3","Hello");
-
             jobRepository.save(job);
         }
     }
