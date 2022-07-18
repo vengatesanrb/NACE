@@ -1,7 +1,7 @@
-package com.example.nace.Job;
+package com.example.nace.job;
 
-import com.example.nace.Job.exceptions.NaceAlreadyExistException;
-import com.example.nace.Job.exceptions.NaceDetailNotFoundException;
+import com.example.nace.job.exceptions.NaceAlreadyExistException;
+import com.example.nace.job.exceptions.NaceDetailNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

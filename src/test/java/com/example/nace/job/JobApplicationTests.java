@@ -1,4 +1,4 @@
-package com.example.nace.Job;
+package com.example.nace.job;
 
 import org.apache.catalina.core.ApplicationContext;
 import org.junit.jupiter.api.Test;
