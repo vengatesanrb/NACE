@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/nace")
+@RequestMapping("nace")
 public class NaceController {
     private final NmcaService nmcaService;
 

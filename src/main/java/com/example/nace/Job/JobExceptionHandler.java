@@ -17,7 +17,10 @@ public class JobExceptionHandler {
 
     @ExceptionHandler(value= NaceAlreadyExistException.class)
     public ResponseEntity<Object> jobExists(){
-        return new ResponseEntity<>("This job already exists or please check the id!", HttpStatus.CONFLICT);
+        return new ResponseEntity<>("This job already exists or please check the order id!", HttpStatus.CONFLICT);
     }
-
+    @ExceptionHandler(value= IllegalArgumentException.class)
+    public ResponseEntity<Object> argumentException(){
+        return new ResponseEntity<>("Please check the job details!", HttpStatus.UNPROCESSABLE_ENTITY);
+    }
 }
