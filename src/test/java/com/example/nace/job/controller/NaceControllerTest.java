@@ -1,14 +1,16 @@
-package com.example.nace.Job.controller;
+package com.example.nace.job.controller;
 
-import com.example.nace.Job.entities.Job;
-import com.example.nace.Job.exceptions.NaceAlreadyExistException;
-import com.example.nace.Job.services.NmcaService;
+import com.example.nace.job.entities.Job;
+import com.example.nace.job.exceptions.NaceAlreadyExistException;
+import com.example.nace.job.mapper.Mapper;
+import com.example.nace.job.services.NmcaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -27,6 +29,8 @@ public class NaceControllerTest {
     private MockMvc mvc;
     @MockBean
     NmcaService service;
+    @SpyBean
+    Mapper mapper;
     @Autowired
     private ObjectMapper objectMapper;
     String POST_URI = "/nace/add";
@@ -36,14 +40,14 @@ public class NaceControllerTest {
 
     @BeforeEach
     void mockService(){
-        agri = new Job(398481L, "A","2","AGRICULTURE, FORESTRY AND FISHING" );
-        when(service.getNaceDetails(398481L)).thenReturn(agri);
+        agri = new Job(598481L, "A","2","AGRICULTURE, FORESTRY AND FISHING" );
+        when(service.getNaceDetails(598481L)).thenReturn(agri);
         when(service.addNaceDetails(isA(Job.class))).thenThrow(new NaceAlreadyExistException());
     }
 
     @Test
     public void checkNaceAgainstId() throws Exception{
-        MvcResult mvcResult =this.mvc.perform(MockMvcRequestBuilders.get(GET_URI+"/398481")
+        MvcResult mvcResult =this.mvc.perform(MockMvcRequestBuilders.get(GET_URI+"/598481")
                 .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
         int status = mvcResult.getResponse().getStatus();
         assertEquals(HttpStatus.OK.value(), status);
@@ -61,7 +65,7 @@ public class NaceControllerTest {
 
     @Test
     public void postNewNace() throws Exception{
-        agri = new Job(398481L, "A","2","ANIMAL CARE" );
+        agri = new Job(598481L, "A","2","ANIMAL CARE" );
         when(service.addNaceDetails(isA(Job.class))).thenReturn(agri);
         MvcResult mvcResult =this.mvc.perform(MockMvcRequestBuilders.post(POST_URI)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
