@@ -35,11 +35,4 @@ public class Job {
     private String thisItemExcludes;
     private String referenceToISIC4;
 
-    public Job(Long orderno, String level, String code, String description){
-        this.orderno = orderno;
-        this.level = level;
-        this.code = code;
-        this.description = description;
-    }
-
 }

@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.when;
 
@@ -34,15 +35,17 @@ public class NaceControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
     String POST_URI = "/nace/add";
+    String PUT_URI = "/nace/update/";
     String GET_URI = "/nace";
 
     Job agri;
 
     @BeforeEach
     void mockService(){
-        agri = new Job(598481L, "A","2","AGRICULTURE, FORESTRY AND FISHING" );
+        agri = new Job(598481L, "A","2","AGRICULTURE, FORESTRY AND FISHING","","","","","","B" );
         when(service.getNaceDetails(598481L)).thenReturn(agri);
         when(service.addNaceDetails(isA(Job.class))).thenThrow(new NaceAlreadyExistException());
+        when(service.updateNaceDetails(isA(Job.class), anyLong())).thenReturn(agri);
     }
 
     @Test
@@ -65,12 +68,22 @@ public class NaceControllerTest {
 
     @Test
     public void postNewNace() throws Exception{
-        agri = new Job(598481L, "A","2","ANIMAL CARE" );
+        agri = new Job(598481L, "A","2","ANIMAL CARE","","","","","","A");
         when(service.addNaceDetails(isA(Job.class))).thenReturn(agri);
         MvcResult mvcResult =this.mvc.perform(MockMvcRequestBuilders.post(POST_URI)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(agri))).andReturn();
         assertEquals(HttpStatus.CREATED.value(), mvcResult.getResponse().getStatus());
+    }
+
+    @Test
+    public void putNewNace() throws Exception{
+        agri = new Job(598481L, "A","2","FISH CARE","","","","","","A");
+        when(service.addNaceDetails(isA(Job.class))).thenReturn(agri);
+        MvcResult mvcResult =this.mvc.perform(MockMvcRequestBuilders.put(PUT_URI+"598481")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(objectMapper.writeValueAsString(agri))).andReturn();
+        assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
     }
 
 }
