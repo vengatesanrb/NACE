@@ -3,7 +3,7 @@ package com.example.nace.job.controller;
 import com.example.nace.job.entities.Job;
 import com.example.nace.job.exceptions.NaceAlreadyExistException;
 import com.example.nace.job.mapper.Mapper;
-import com.example.nace.job.services.NmcaService;
+import com.example.nace.job.service.NmcaService;
 import com.example.nace.job.vo.JobDetails;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

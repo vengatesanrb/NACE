@@ -1,4 +1,4 @@
-package com.example.nace.job.services;
+package com.example.nace.job.service;
 
 import com.example.nace.job.dao.JobRepository;
 import com.example.nace.job.entities.Job;
