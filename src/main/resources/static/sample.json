@@ -1,12 +1,12 @@
 {
-  "id": 399477,
+  "orderno": 398482,
   "level": "2",
-  "code": "A",
-  "parent": null,
-  "description": "Hello",
-  "thisItemIncludes": "This section includes the exploitation of vegetal and animal natural resources, comprising the activities of growing of crops, raising and breeding of animals, harvesting of timber and other plants, animals or animal products from a farm or their natural habitats.",
-  "thisItemAlsoIncludes": null,
+  "code": "1",
+  "parent": "A",
+  "description": "Crop and animal production, hunting and related service activities",
+  "thisItemIncludes": "This division includes two basic activities, namely the production of crop products and production of animal products, covering also the forms of organic agriculture, the growing of genetically modified crops and the raising of genetically modified animals. This division includes growing of crops in open fields as well in greenhouses.\r\n \r\nGroup 01.5 (Mixed farming) breaks with the usual principles for identifying main activity. It accepts that many agricultural holdings have reasonably balanced crop and animal production, and that it would be arbitrary to classify them in one category or the other.",
+  "thisItemAlsoIncludes": "This division also includes service activities incidental to agriculture, as well as hunting, trapping and related activities.",
   "rulings": null,
-  "thisItemExcludes": null,
-  "referenceToISIC4": "A"
+  "thisItemExcludes": "Agricultural activities exclude any subsequent processing of the agricultural products (classified under divisions 10 and 11 (Manufacture of food products and beverages) and division 12 (Manufacture of tobacco products)), beyond that needed to prepare them for the primary markets. The preparation of products for the primary markets is included here.\r\n\r\nThe division excludes field construction (e.g. agricultural land terracing, drainage, preparing rice paddies etc.) classified in section F (Construction) and buyers and cooperative associations engaged in the marketing of farm products classified in section G. Also excluded is the landscape care and maintenance, which is classified in class 81.30.",
+  "referenceToISIC4": "1"
 }
